@@ -1,4 +1,10 @@
-#pragma once
+//          Copyright Thomas A Myles 2017.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+
+#ifndef EDWARDS_INTERNAL_DIALOG_PRIMATIVES_HPP
+#define EDWARDS_INTERNAL_DIALOG_PRIMATIVES_HPP
 
 #include <array>
 #include <cstdint>
@@ -29,4 +35,6 @@ namespace edwards::internal {
         }
         return message.substr(data_start, message.size() - data_start - 1);
     }
-}
+} // namespace edwards::internal
+
+#endif // EDWARDS_INTERNAL_DIALOG_PRIMATIVES_HPP

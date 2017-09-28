@@ -108,4 +108,4 @@ namespace edwards::internal {
         _result.ec = ec;
         get_io_service().post(_resume_handle);
     }
-}
+} // namespace edwards::internal

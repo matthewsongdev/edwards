@@ -1,10 +1,15 @@
+//          Copyright Thomas A Myles 2017.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+
 #ifndef EDWARDS_ERROR_HPP
 #define EDWARDS_ERROR_HPP
 
-#include <boost/system/error_code.hpp>
+#include <edwards/config.hpp>
 
 namespace edwards {
-    using boost::system::error_code;
+    using EDWARDS_ERROR_NS::error_code;
 
     enum class error : int {
         invalid_command_for_object = 1,
@@ -30,13 +35,13 @@ namespace edwards {
         }
     }
 
-    const boost::system::error_category & edwards_category() noexcept;
+    const EDWARDS_ERROR_NS::error_category & edwards_category() noexcept;
 
     error_code make_error_code(error) noexcept;
 }
 
 template<>
-struct boost::system::is_error_code_enum<edwards::error>
+struct EDWARDS_ERROR_NS::is_error_code_enum<edwards::error>
     : public std::true_type
 { };
 

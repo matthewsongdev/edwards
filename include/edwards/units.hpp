@@ -1,4 +1,5 @@
-#pragma once
+#ifndef EDWARDS_UNITS_HPP
+#define EDWARDS_UNITS_HPP
 
 #include <units.h>
 #include <chrono>
@@ -12,4 +13,6 @@ namespace edwards {
     using units::voltage::volt_t;
     using units::current::ampere_t;
     using units::frequency::hertz_t;
-} // edwards
+} // namespace edwards
+
+#endif // EDWARDS_UNITS_HPP

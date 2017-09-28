@@ -1,0 +1,6 @@
+[submodule "extern/units"]
+	path = extern/units
+	url = https://github.com/nholthaus/units.git
+[submodule "extern/fmt"]
+	path = extern/fmt
+	url = https://github.com/fmtlib/fmt.git

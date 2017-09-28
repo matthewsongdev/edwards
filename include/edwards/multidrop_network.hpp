@@ -1,7 +1,10 @@
-#ifndef EDWARDS_SERIAL_INTERFACE_HPP
-#define EDWARDS_SERIAL_INTERFACE_HPP
+//          Copyright Thomas A Myles 2017.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
 
-#include <common/config.hpp>
+#ifndef EDWARDS_MULTIDROP_NETWORK_HPP
+#define EDWARDS_MULTIDROP_NETWORK_HPP
 
 #include <cassert>
 #include <chrono>
@@ -10,11 +13,11 @@
 #include <string_view>
 #include <tuple>
 
-#include <boost/asio.hpp>
 #include <boost/thread/future.hpp>
 
 #include <gsl/gsl>
 
+#include <edwards/config.hpp>
 #include <edwards/error.hpp>
 #include <edwards/nEXT.hpp>
 #include <edwards/units.hpp>
@@ -55,9 +58,9 @@ namespace edwards {
 
     class multidrop_network {
     public:
-        multidrop_network(boost::asio::io_service & service, std::string_view rs485_port);
+        multidrop_network(EDWARDS_ASIO_NS::io_service & service, std::string_view rs485_port);
 
-        auto get_io_service() noexcept -> boost::asio::io_service &;
+        auto get_io_service() noexcept -> EDWARDS_ASIO_NS::io_service &;
         
         // 851
         auto pump_info(multidrop_endpoint pump) -> boost::future<edwards::pump_info>;
@@ -141,8 +144,8 @@ namespace edwards {
         template<typename... Args>
         auto send_query(error_code & ec, Args&&... args) -> boost::future<internal::message_buffer>;
         
-        boost::asio::serial_port	_port;
+        EDWARDS_ASIO_NS::serial_port	_port;
     };
-}
+} // namespace edwards
 
-#endif
+#endif // EDWARDS_MULTIDROP_NETWORK_HPP

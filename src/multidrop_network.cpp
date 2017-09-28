@@ -286,4 +286,4 @@ namespace edwards {
             throw boost::system::error_code{ ec };
         }
     }
-}
+} // namespace edwards
